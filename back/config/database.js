@@ -1,8 +1,7 @@
 //create connection to database
 const mongoose = require("mongoose");
 
-// const {MONGO_URI} = process.env;
-const {MONGO_URI} = "mongodb+srv://IKHOMENKO2:iphone3G20@senecaweb.mymvn.mongodb.net/PersonalProjects?retryWrites=true&w=majority";
+const {MONGO_URI} = process.env;
 
 exports.connect = () => {
     mongoose.connect(MONGO_URI,{

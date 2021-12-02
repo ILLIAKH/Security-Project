@@ -1,8 +1,7 @@
 //create a route that requires a user token in the header
 const jwt = require("jsonwebtoken");
 
-// const config = process.env;
-const tokenKey = "somerandomstring";
+const config = process.env;
 
 const verifyToken = (req, res, next) => {
   const token = req.body.token || req.query.token || req.headers["x-access-token"];
@@ -13,7 +12,7 @@ const verifyToken = (req, res, next) => {
   }
   try {
     //try to decode the jwt token using the secret
-    const decoded = jwt.verify(token, tokenKey);
+    const decoded = jwt.verify(token, config.TOKEN_KEY);
     req.user = decoded;
   } catch (err) {
     return res.status(401).send("Invalid Token");
