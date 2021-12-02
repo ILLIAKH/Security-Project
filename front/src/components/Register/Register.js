@@ -45,15 +45,15 @@ const Register = () => {
   return(
     <div className={styles.Register}>
       Register User
-      <div className="register-container">
+      <div className="register-container Form">
         {/* <form> */}
           <input type="text" name="first_name" placeholder="First Name" onChange={handleChange}></input>
           <input type="text" name="last_name" placeholder="Last Name" onChange={handleChange}></input>
           <input type="text" name="email" placeholder="example@gmail.com" onChange={handleChange}></input>
           <input type="password" name="password" onChange={handleChange}></input>
-          <button onClick={handleSubmit}>Submit</button>
         {/* </form> */}
       </div>
+          <button onClick={handleSubmit}>Submit</button>
       <p>{errMsg}</p>
     </div>
   );

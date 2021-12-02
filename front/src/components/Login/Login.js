@@ -44,13 +44,13 @@ const Login = () => {
   return(
     <div className={styles.Login}>
       Login Component
-      <div className="login-container">
+      <div className="login-container Form">
         {/* <form> */}
           <input type="text" name="email" placeholder="example@gmail.com" onChange={handleChange}></input>
           <input type="password" name="password" onChange={handleChange}></input>
-          <button onClick={handleSubmit}>Submit</button>
         {/* </form> */}
       </div>
+          <button onClick={handleSubmit}>Submit</button>
       <p>{errMsg}</p>
     </div>
   );
