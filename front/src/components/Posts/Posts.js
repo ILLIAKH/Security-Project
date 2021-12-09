@@ -75,14 +75,17 @@ const Posts = () => {
 
   return (
     <div className={styles.Posts}>
-    Create Post
+    <h1>XSS Exmaple</h1>
+    <hr></hr>
+    <h3>Create Post</h3>
     <div className="Form">
       <input type="text" name="title" placeholder="Title" onChange={handleChange}></input>
       <input type="text" name="description" placeholder="description" onChange={handleChange}></input>
-      <textarea type="text" name="body" onChange={handleChange} rows="4" cols="50"></textarea>
+      <textarea type="text" name="body" placeholder="Post Body" onChange={handleChange} rows="4" cols="50"></textarea>
     </div>
       <button onClick={createPost}>Submit</button>
-    <h1>Post Data</h1>
+      <hr></hr>
+    <h3>Post Data</h3>
     {/* <button onClick={getPosts}>Get Posts</button> */}
     {postData}
     </div>

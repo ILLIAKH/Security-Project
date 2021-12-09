@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Posts from './components/Posts/Posts';
+import Injection from './components/Injection/Injection';
 
 import {
   BrowserRouter as Router,
@@ -18,9 +19,9 @@ function App() {
         <div className="header">
           <nav>
             <ul>
-              <li>
+              {/* <li>
                 <Link to="/">Home</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/register">Register</Link>
               </li>
@@ -30,16 +31,20 @@ function App() {
               <li>
                 <Link to="/posts">Posts</Link>
               </li>
+              <li>
+                <Link to="/injection">Injection</Link>
+              </li>
             </ul>
           </nav>
         </div>
 
         {/* will render the links refs */}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/injection" element={<Injection />} />
         </Routes>
       </div>
     </Router>

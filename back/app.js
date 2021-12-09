@@ -115,9 +115,9 @@ app.post("/posts/createPost", async (req, res) => {
   try {
 
       const {title, description, body} = req.body;
-      if(!(title && description && body))
+      if(!(title && body))
       {
-        res.status(400).send("All input is required");
+        return res.status(400).send("Title and Body are required");
       }
       
       // Create post in our database
@@ -136,14 +136,20 @@ app.post("/posts/createPost", async (req, res) => {
 });
 
 app.get("/posts/getPosts", async (req, res) => {
-  
   try {
     const allPosts = await Post.find();
     return res.json(allPosts);
   } catch (error) {
     res.json(error);
   }
+});
 
+// MongoDB injection example
+app.post('/users/find',(req,res) => {
+  // const query = {email: req.body.email}
+    const query = req.body;
+    console.log(query);
+    User.find(query).exec().then((r)=>res.json(r));
 });
 
 module.exports = app;

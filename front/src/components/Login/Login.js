@@ -11,6 +11,7 @@ const Login = () => {
   });
 
   const [errMsg, setErrMsg] = React.useState([""]);
+  const [JWTtoken, setJWTtoken] = React.useState([""]);
   
   function handleChange(evt) {
     const value = evt.target.value;
@@ -31,7 +32,9 @@ const Login = () => {
         .then(res => {
           // alert(response);
           console.log(res);
+          console.log(res.data.token);
           setErrMsg("Logged In!");
+          setJWTtoken(res.data.token);
         }).catch(err => {
           if(err.response)
           {
@@ -47,11 +50,14 @@ const Login = () => {
       <div className="login-container Form">
         {/* <form> */}
           <input type="text" name="email" placeholder="example@gmail.com" onChange={handleChange}></input>
-          <input type="password" name="password" onChange={handleChange}></input>
+          <input type="text" name="password" placeholder="password" onChange={handleChange}></input>
         {/* </form> */}
       </div>
           <button onClick={handleSubmit}>Submit</button>
       <p>{errMsg}</p>
+      <textarea readOnly value={JWTtoken} style={{width: "350px", height: "75px"}}>
+        {/* {JWTtoken} */}
+      </textarea>
     </div>
   );
 }
